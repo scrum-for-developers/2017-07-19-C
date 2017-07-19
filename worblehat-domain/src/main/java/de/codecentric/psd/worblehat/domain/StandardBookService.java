@@ -77,5 +77,16 @@ public class StandardBookService implements BookService {
         bookRepository.deleteAll();
     }
 
+	@Override
+	public void returnBookByBorrower(String borrowerEmailAddress, String bookIsbn) {
+		
+		Book book =  bookRepository.findBookByIsbn(bookIsbn);
+		
+        Borrowing borrowing = borrowingRepository.findBorrowingForBook(book);
+        if(borrowing.getBorrowerEmailAddress().equals(borrowerEmailAddress)){
+            borrowingRepository.delete(borrowing);
+        }
+	}
+
 
 }
