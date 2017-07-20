@@ -29,6 +29,9 @@ public class BookBorrowFormData {
 	}
 
 	public String getEmail() {
+		if (email != null) {
+			return email.trim();
+		}
 		return email;
 	}
 

@@ -40,6 +40,9 @@ public class BookDataFormData {
 	}
 
 	public String getIsbn() {
+		if (isbn != null) {
+			return isbn.trim();
+		}
 		return isbn;
 	}
 
@@ -48,6 +51,9 @@ public class BookDataFormData {
 	}
 
 	public String getAuthor() {
+		if (author != null) {
+			return author.trim();
+		}
 		return author;
 	}
 
@@ -64,6 +70,9 @@ public class BookDataFormData {
 	}
 
 	public String getEdition() {
+		if (edition != null) {
+			return edition.trim();
+		}
 		return edition;
 	}
 
