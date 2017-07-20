@@ -30,7 +30,7 @@ public class BookDataFormData {
 	@ISBN(message = "{notvalid.bookDataFormData.isbn}")
 	private String isbn;
 	
-	@IsTrue(message = "{notvalid.bookDataForm.alreadyExists")
+//	@IsTrue(message = "{notvalid.bookDataForm.alreadyExists")
 	private Boolean alreadyExists;
 
 	@NotEmpty(message = "{empty.bookDataFormData.author}")
