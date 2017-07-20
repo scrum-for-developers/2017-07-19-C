@@ -35,6 +35,8 @@ public class BookDataFormData {
 
 	@NotEmpty(message = "{empty.bookDataFormData.author}")
 	private String author;
+	
+	private String description;
 
 	public String getYearOfPublication() {
 		return yearOfPublication;
