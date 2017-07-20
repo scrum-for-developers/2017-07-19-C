@@ -1,5 +1,6 @@
 package de.codecentric.psd.worblehat.web.controller;
 
+import de.codecentric.psd.worblehat.domain.Book;
 import de.codecentric.psd.worblehat.domain.BookService;
 import de.codecentric.psd.worblehat.web.formdata.BookDataFormData;
 import org.slf4j.Logger;
@@ -40,15 +41,27 @@ public class InsertBookController {
 	public String processSubmit(@ModelAttribute("bookDataFormData") @Valid BookDataFormData bookDataFormData,
 			BindingResult result) {
 
+		bookDataFormData.setAlreadyExists(false);
+		
+		Book existingBook = bookService.findBookByIsbn(bookDataFormData.getIsbn());
+		if(existingBook==null){
+			bookDataFormData.setAlreadyExists(true);
+			result.reject("testFehler");
+		}
+
+		
 		if (result.hasErrors()) {
 			return "insertBooks";
 		} else {
-			bookService.createBook(bookDataFormData.getTitle(), bookDataFormData.getAuthor(),
-					bookDataFormData.getEdition(), bookDataFormData.getIsbn(),
-					Integer.parseInt(bookDataFormData.getYearOfPublication()));
-			LOG.debug("new book instance is created: " + bookDataFormData.getIsbn());
-			return "redirect:bookList";
+
+				
+				bookService.createBook(bookDataFormData.getTitle(), bookDataFormData.getAuthor(),
+						bookDataFormData.getEdition(), bookDataFormData.getIsbn(),
+						Integer.parseInt(bookDataFormData.getYearOfPublication()));
+				LOG.debug("new book instance is created: " + bookDataFormData.getIsbn());
+				return "redirect:bookList";
 		}
+
 	}
 
 }
