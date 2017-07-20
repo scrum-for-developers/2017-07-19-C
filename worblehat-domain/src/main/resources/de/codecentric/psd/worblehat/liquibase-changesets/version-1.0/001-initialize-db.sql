@@ -28,7 +28,7 @@ INSERT INTO book(title, author, edition, isbn, year_of_publication, description)
 VALUES
   ("Harry Potter and the Philisopher's Stone", "J.K. Rowling", "", "0747532699", 1997, "the first Harry Potter book"),
   ("Harry Potter and the Prisoner of Azkaban", "J.K. Rowling", "", "0747542155", 1999, "the second Harry Potter book"),
-  ("Harry Potter and the Goblet of Fire", "J.K. Rowling", "", "074754624X", 2000, "the second Harry Potter book"),
-  ("Harry Potter and the Order of the Phoenix", "J.K. Rowling", "", "0747551006", 2003, "yet another Harry Potter book"),
-  ("Harry Potter and the Half-Blood Prince", "J.K. Rowling", "", "0747581088", 2005, "yet another Harry Potter book"),
-  ("Harry Potter and the Deathly Hallows", "J.K. Rowling", "", "0545010225", 2007, "yet another Harry Potter book");
+  ("Harry Potter and the Goblet of Fire", "J.K. Rowling", "", "074754624X", 2000, "the third Harry Potter book"),
+  ("Harry Potter and the Order of the Phoenix", "J.K. Rowling", "", "0747551006", 2003, "the fourth Harry Potter book"),
+  ("Harry Potter and the Half-Blood Prince", "J.K. Rowling", "", "0747581088", 2005, "the fifth Harry Potter book"),
+  ("Harry Potter and the Deathly Hallows", "J.K. Rowling", "", "0545010225", 2007, "the sixth Harry Potter book");
