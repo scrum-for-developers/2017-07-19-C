@@ -18,6 +18,9 @@ public class BookBorrowFormData {
 	private String email;
 
 	public String getIsbn() {
+		if (isbn != null) {
+			return isbn.trim();
+		}
 		return isbn;
 	}
 
