@@ -12,8 +12,10 @@ import org.springframework.stereotype.Service;
 public class StartupMonitor {
 
     private Environment env;
+    
+    public static String version;
 
-    private static final String[] PROPERTIES =
+    public static final String[] PROPERTIES =
             { "spring.datasource.url",
                     "spring.datasource.username",
                     "spring.datasource.password",
@@ -40,7 +42,10 @@ public class StartupMonitor {
             String propInfo = property + " " + env.getProperty(property);
             LOG.info(propInfo);
         }
+        version=env.getProperty("info.version");
     }
+    
+    
 }
 
 
