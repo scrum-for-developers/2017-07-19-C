@@ -24,7 +24,7 @@
     <li><a th:href="@{/returnAllBooks}">Return all Books</a></li>
 </ul>
 <div id="parent">
-	<div id="child">version=<span th:text="${version}">version</span></div>
+	<div id="child">version=<span th:text="${@environment.getProperty('info.version')}">version</span></div>
 </div>
 </body>
 </html>
