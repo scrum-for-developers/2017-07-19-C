@@ -7,6 +7,7 @@ import de.codecentric.psd.worblehat.domain.BookService;
 import de.codecentric.psd.worblehat.web.formdata.BookDataFormData;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.MapBindingResult;
@@ -52,6 +53,7 @@ public class InsertBookControllerTest {
     @Test
     public void shouldRejectErrors() throws Exception {
         bindingResult.addError(new ObjectError("", ""));
+        Mockito.doReturn(Mockito.mock(Book.class)).when(bookService).findBookByIsbn(Mockito.any(String.class));
 
         String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
 
@@ -62,6 +64,7 @@ public class InsertBookControllerTest {
     public void shouldCreateNewCopyOfExistingBook() throws Exception {
         setupFormData();
         when(bookService.bookExists(TEST_BOOK.getIsbn())).thenReturn(true);
+        Mockito.doReturn(Mockito.mock(Book.class)).when(bookService).findBookByIsbn(Mockito.any(String.class));
 
         String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
 
@@ -73,6 +76,7 @@ public class InsertBookControllerTest {
     public void shouldCreateBookAndNavigateToBookList() throws Exception {
         setupFormData();
         when(bookService.bookExists(TEST_BOOK.getIsbn())).thenReturn(false);
+        Mockito.doReturn(Mockito.mock(Book.class)).when(bookService).findBookByIsbn(Mockito.any(String.class));
 
         String navigateTo = insertBookController.processSubmit(bookDataFormData, bindingResult);
 
