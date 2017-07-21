@@ -1,7 +1,11 @@
 package de.codecentric.psd.worblehat.web.formdata;
 
 import de.codecentric.psd.worblehat.web.validation.ISBN;
+import de.codecentric.psd.worblehat.web.validation.IsTrue;
 import de.codecentric.psd.worblehat.web.validation.Numeric;
+
+import javax.validation.constraints.AssertFalse;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -25,6 +29,9 @@ public class BookDataFormData {
 	@NotEmpty(message = "{empty.bookDataFormData.isbn}")
 	@ISBN(message = "{notvalid.bookDataFormData.isbn}")
 	private String isbn;
+	
+//	@IsTrue(message = "{notvalid.bookDataForm.alreadyExists")
+	private Boolean alreadyExists;
 
 	@NotEmpty(message = "{empty.bookDataFormData.author}")
 	private String author;
@@ -40,9 +47,6 @@ public class BookDataFormData {
 	}
 
 	public String getIsbn() {
-		if (isbn != null) {
-			return isbn.trim();
-		}
 		return isbn;
 	}
 
@@ -51,9 +55,6 @@ public class BookDataFormData {
 	}
 
 	public String getAuthor() {
-		if (author != null) {
-			return author.trim();
-		}
 		return author;
 	}
 
@@ -70,14 +71,21 @@ public class BookDataFormData {
 	}
 
 	public String getEdition() {
-		if (edition != null) {
-			return edition.trim();
-		}
 		return edition;
 	}
 
 	public void setEdition(String edition) {
 		this.edition = edition;
+	}
+
+	
+	
+	public Boolean getAlreadyExists() {
+		return alreadyExists;
+	}
+
+	public void setAlreadyExists(Boolean alreadyExists) {
+		this.alreadyExists = alreadyExists;
 	}
 
 	public String getDescription() {

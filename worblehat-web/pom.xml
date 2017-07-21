@@ -81,6 +81,20 @@
 					<executable>true</executable>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+<!-- 				<version>1.4</version> -->
+				<configuration>
+					<mainClass>de.codecentric.Application</mainClass>
+					<systemProperties>
+                    <systemProperty>
+                        <key>pom.version</key>
+                        <value>${pom.version}</value>
+                    </systemProperty>
+                </systemProperties>
+				</configuration>
+			</plugin>
 		</plugins>
 		<resources>
 			<resource>
