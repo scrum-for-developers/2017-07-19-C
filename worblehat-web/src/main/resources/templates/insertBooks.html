@@ -21,6 +21,8 @@
 			Year:<input type="text" th:field="*{yearOfPublication}" />
 		<span class="error" th:if="${#fields.hasErrors('yearOfPublication')}" th:errors="*{yearOfPublication}"></span>
 		<br />
+			Description:<textarea maxlength="255" th:field="*{description}">This is a description</textarea>
+		<br />
 		<input type="submit" id="addBook" value="Add Book" />
 		<hr/>
 		<br/>

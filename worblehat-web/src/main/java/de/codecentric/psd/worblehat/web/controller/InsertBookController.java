@@ -41,12 +41,12 @@ public class InsertBookController {
 	public String processSubmit(@ModelAttribute("bookDataFormData") @Valid BookDataFormData bookDataFormData,
 			BindingResult result) {
 
-//		bookDataFormData.setAlreadyExists(false);
+		bookDataFormData.setAlreadyExists(false);
 		
 		Book existingBook = bookService.findBookByIsbn(bookDataFormData.getIsbn());
-		if(existingBook==null){
-//			bookDataFormData.setAlreadyExists(true);
-			return "redirect:home";
+		if(existingBook!=null){
+			bookDataFormData.setAlreadyExists(true);
+			return "redirect:error";
 		}
 
 		
